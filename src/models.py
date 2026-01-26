@@ -31,5 +31,6 @@ class ImageEnhancer:
             has_aligned=False,
             only_center_face=False,
             paste_back=True,
-            weight=CONFIG["enhacement_weight"]
+            weight=CONFIG["enhancement_weight"]
         )
+        return restored_img
