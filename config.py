@@ -6,5 +6,5 @@ CONFIG = {
     "upscale": 1,
     "arch": "clean",
     "channel_multiplier": 2,
-    "enhancement_weight": 1
+    "enhancement_weight": 0.5
 }
