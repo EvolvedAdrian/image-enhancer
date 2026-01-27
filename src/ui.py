@@ -7,8 +7,8 @@ import io
 
 def render_header():
     """Renders the app header"""
-    st.title("Photo face enhancer")
-    st.markdown("Upload and improve your photos with AI")
+    st.title("Photo Face Enhancer", text_alignment="center")
+    st.markdown("Upload and improve your photos with AI", text_alignment="center")
 
 def render_file_uploader():
     """Renders the file uploader component
@@ -17,7 +17,7 @@ def render_file_uploader():
         UploadedFile or None
     """
     uploaded_file = st.file_uploader(
-        "Select an image",
+        "Select a photo",
         type=CONFIG["allowed_formats"],
         help="Upload a photo to improve its quality"
     )
@@ -31,7 +31,7 @@ def render_interactive_slider(original_img, restored_img):
         restored_img: Restored PIL image
     """
     st.markdown("---")
-    st.subheader("Interactive comparator")
+    st.subheader("Interactive comparator", text_alignment="center")
 
     slider_value = st.slider(
         "Slide to compare",
@@ -50,7 +50,7 @@ def render_interactive_slider(original_img, restored_img):
     split_pos = int(width * slider_value / 100)
 
     combined = Image.new('RGB', original_img.size)
-    combined.paste(original_img.crop(0, 0, split_pos, original_img.height))
+    combined.paste(original_img.crop((0, 0, split_pos, original_img.height)))
     combined.paste(restored_img.crop((split_pos, 0, width, original_img.height)), (split_pos, 0))
 
     # Add dividing line
@@ -70,11 +70,10 @@ def render_download_button(restored_img):
     Args:
         restored_img: Restored PIL image
     """
-    st.markdown("---")
     buf = io.BytesIO()
     restored_img.save(buf, format='PNG')
     st.download_button(
-        label="Download enhanced photo",
+        label="Download enhanced",
         data=buf.getvalue(),
         file_name="image_enhanced.png",
         mime="image/png",
