@@ -1,5 +1,5 @@
 import streamlit as st
-from config import CONFIG
+from config import CONFIG_GFPGAN
 from PIL import Image
 import numpy as np
 import cv2
@@ -7,7 +7,7 @@ import io
 
 def render_header():
     """Renders the app header"""
-    st.title("Photo Face Enhancer", text_alignment="center")
+    st.title("Photo enhancer", text_alignment="center")
     st.markdown("Upload and improve your photos with AI", text_alignment="center")
 
 def render_file_uploader():
@@ -18,7 +18,7 @@ def render_file_uploader():
     """
     uploaded_file = st.file_uploader(
         "Select a photo",
-        type=CONFIG["allowed_formats"],
+        type=CONFIG_GFPGAN["allowed_formats"],
         help="Upload a photo to improve its quality"
     )
     return uploaded_file
