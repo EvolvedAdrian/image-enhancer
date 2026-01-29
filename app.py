@@ -32,6 +32,27 @@ def main():
         original_image = load_image(uploaded_file)
         img_bgr = pil_to_bgr(original_image)
 
+
+        # Processing options
+        st.markdown("---")
+        st.subheader("Enhancer options")
+
+        col_opt1, col_opt2 = st.columns(2)
+
+        with col_opt1:
+            repair_scratches = st.checkbox(
+                "Repair scratches",
+                value=False,
+                help="Remove stripes and scratches from image"
+            )
+        
+        with col_opt2:
+            enhance_background = st.checkbox(
+                "Enhance background quality",
+                value=False,
+                help="Use RealESRGAN to enhance background"
+            )
+
         st.markdown("---")
 
         # Processing button
@@ -40,6 +61,8 @@ def main():
                 # Improve photo with selected options
                 restored_bgr = enhancer.enhance(
                     img_bgr,
+                    repair_scratches,
+                    enhance_background
                 )
                 restored_img = bgr_to_pil(restored_bgr)
 
