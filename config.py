@@ -1,3 +1,40 @@
+# ==============
+# Model settings
+# ==============
+
+CONFIG_GFPGAN = {
+    # GFPGAN Model
+    "model_url": "https://github.com/TencentARC/GFPGAN/releases/download/v1.3.4/GFPGANv1.4.pth",
+    "upscale": 1,
+    "arch": "clean",
+    "channel_multiplier": 2,
+    "enhancement_weight": 0.5,
+
+    "allowed_formats": ['jpg', 'jpeg', 'png']
+}
+
+CONFIG_RRDBNET = {
+    "num_in_ch": 3,        # 3 input channels (RGB)
+    "num_out_ch": 3,       # 3 output channels (RGB)
+    "num_feat": 64,        # 64 features
+    "num_block": 23,       # 23 blocks
+    "num_grow_ch": 32,     # 32 growing channels
+    "scale": 2             # 2x scale
+}
+
+CONFIG_UPSAMPLER = {
+    "scale": 2,
+    "model_path": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.1/RealESRGAN_x2plus.pth",
+    "tile": 400,
+    "tile_pad": 10,
+    "pre_pad": 0,
+    "half": False
+}
+
+# ======================
+# Streamlit app settings
+# ======================
+
 PAGE_CONFIG = {
     "page_title": "AI Photo Enhancer",
     "page_icon": "💫",
@@ -76,32 +113,3 @@ div.stFileUploader > section {
 
 </style>
 """
-
-CONFIG_GFPGAN = {
-    # GFPGAN Model
-    "model_url": "https://github.com/TencentARC/GFPGAN/releases/download/v1.3.4/GFPGANv1.4.pth",
-    "upscale": 1,
-    "arch": "clean",
-    "channel_multiplier": 2,
-    "enhancement_weight": 0.5,
-
-    "allowed_formats": ['jpg', 'jpeg', 'png']
-}
-
-CONFIG_RRDBNET = {
-    "num_in_ch": 3,        # 3 input channels (RGB)
-    "num_out_ch": 3,       # 3 output channels (RGB)
-    "num_feat": 64,        # 64 features
-    "num_block": 23,       # 23 blocks
-    "num_grow_ch": 32,     # 32 growing channels
-    "scale": 2             # 2x scale
-}
-
-CONFIG_UPSAMPLER = {
-    "scale": 2,
-    "model_path": "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.1/RealESRGAN_x2plus.pth",
-    "tile": 400,
-    "tile_pad": 10,
-    "pre_pad": 0,
-    "half": False
-}
