@@ -2,9 +2,10 @@ from gfpgan import GFPGANer
 from config import CONFIG_GFPGAN, CONFIG_RRDBNET, CONFIG_UPSAMPLER
 from zeroscratches import EraseScratches
 from src.utils import bgr_to_pil, pil_to_bgr
-import streamlit as st
 from basicsr.archs.rrdbnet_arch import RRDBNet
 from realesrgan import RealESRGANer
+import streamlit as st, os, urllib.request
+
 
 class ImageEnhancer:
     """Class to manage GFPGAN model and image processing"""
@@ -28,8 +29,15 @@ class ImageEnhancer:
     @st.cache_resource
     def load_model_simple(_self, _bg_upsampler=None):
         """Loads GFPGAN model for face enhancement"""
+
+        local_model_path = os.path.join('/tmp', "gfpgan")
+        
+        # Checks if local model folder exists
+        if not os.path.exists(local_model_path):
+            urllib.request.urlretrieve(CONFIG_GFPGAN["model_url"], local_model_path)
+
         model = GFPGANer(
-            model_path=CONFIG_GFPGAN["model_url"],
+            model_path=local_model_path,
             upscale=CONFIG_GFPGAN["upscale"],
             arch=CONFIG_GFPGAN["arch"],
             channel_multiplier=CONFIG_GFPGAN["channel_multiplier"],
@@ -40,9 +48,18 @@ class ImageEnhancer:
     def load_model_with_background(self):
         """Loads GFPGAN with RealESRGAN (face enhancer + background)"""
         model_bg = RRDBNet(**CONFIG_RRDBNET)
+        local_model_path = os.path.join('/tmp', "upsampler")
+
+        # Copy new path mod kwargs
+        upsampler_kwargs = CONFIG_UPSAMPLER.copy()
+        upsampler_kwargs['model_path'] = local_model_path
+
+        # Checks if local model exists
+        if not os.path.exists(local_model_path):
+            urllib.request.urlretrieve(CONFIG_UPSAMPLER["model_path"], local_model_path)
 
         bg_upsampler = RealESRGANer(
-            **CONFIG_UPSAMPLER,
+            **upsampler_kwargs,
             model = model_bg
         )
         
