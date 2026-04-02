@@ -7,8 +7,8 @@ import io
 
 def render_header():
     """Renders the app header"""
-    st.title("Photo enhancer", text_alignment="center")
-    st.markdown("Upload and improve your photos with AI", text_alignment="center")
+    st.title("AI Image enhancer", text_alignment="center")
+    st.markdown("Upload and improve blurred faces with AI. Now with background and scratch repairing.", text_alignment="center")
 
 def render_file_uploader():
     """Renders the file uploader component
