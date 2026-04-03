@@ -13,8 +13,8 @@ OpenCV, TensorFlow, and PIL for image processing and deep learning
 
 This project uses this pre-trained AI models**:
 
-| Model | Purpose | Framework |
-| :--- | :--- | :--- |
+| Model | Use |
+| :--- | :--- |
 | **GFPGANv1.4.pth** | Face restoration model |
 | **RealESRGAN_x2plus.pth** | Upscaling and background enhancement |
 
@@ -70,7 +70,7 @@ Main Python libraries used in this project:
 Start the application using:
 
 ```bash
-npm run start
+streamlit run app.py
 ```
 
 ---
