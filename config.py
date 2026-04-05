@@ -47,6 +47,7 @@ STYLE_CONFIG = """
 
 * {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
+    color: #fff;
 }
 
 .stApp {
@@ -90,6 +91,26 @@ h1 > span {
 div.stFileUploader > section {
     box-shadow: 3px 3px 10px 3px #15153d;
     background: linear-gradient(120deg, #3D3155, #1a1533);
+
+    & > div > div > span{
+        color: #fff;
+    }
+
+    & > span > button {
+        background: linear-gradient(10deg, #3D3155, #53568F, #3D3155);
+        background-size: auto 400%;
+        background-position: top;
+        transition: all 0.2s;
+
+        &:hover{
+            border: 1px solid #eee3;
+            background-position: bottom;
+        }
+    }
+}
+
+div.stFileUploaderFileData > *{
+    color: #fff;
 }
 
 .stSlider > div > div > div {
@@ -108,8 +129,6 @@ div.stFileUploader > section {
     border: 1px solid #eee3;
     background-color: #53568F;
 }
-
-
 
 </style>
 """

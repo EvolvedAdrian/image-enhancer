@@ -7,7 +7,7 @@ import io
 
 def render_header():
     """Renders the app header"""
-    st.title("AI Image enhancer", text_alignment="center")
+    st.title("AI Image Enhancer", text_alignment="center")
     st.markdown("Upload and improve blurred faces with AI. Now with background and scratch repairing.", text_alignment="center")
 
 def render_file_uploader():
