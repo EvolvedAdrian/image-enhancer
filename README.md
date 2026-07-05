@@ -1,15 +1,30 @@
 # AI Image Enhancer
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
 
-> A web application to improve blurred faces with AI. Now with background and scratch repairing. It is structured to be simple and modular so you can:
+[Leer en español](README.es.md)
+
+A web application created to improve blurred faces with AI. Now with background and scratch repairing.
+
+## Tech Stack
+
+Main Python libraries used in this project:
+
+| Library | Use |
+| :--- | :--- |
+| **Streamlit** | Web UI framework |
+| **OpenCV (cv2)** |  Image processing and manipulation |
+| **Pillow (PIL)** | Image format conversion |
+| **NumPy** | Numerical computing |
+
+---
+
+### Features:
+The app is made in Python with mainly streamlit for UI and 
+OpenCV, TensorFlow, and PIL for image processing and deep learning.
+It is structured to be simple and modular so you can:
+
 - Load an image
 - Apply enhancement filters
 - Save the result image
-
-### Project operation:
-The app is made in Python with mainly streamlit for UI and 
-OpenCV, TensorFlow, and PIL for image processing and deep learning
 
 This project uses this pre-trained AI models**:
 
@@ -28,20 +43,7 @@ This project uses this pre-trained AI models**:
 
 ---
 
-## 📦 Dependencies
-
-Main Python libraries used in this project:
-
-| Library | Use |
-| :--- | :--- |
-| **Streamlit** | Web UI framework |
-| **OpenCV (cv2)** |  Image processing and manipulation |
-| **Pillow (PIL)** | Image format conversion |
-| **NumPy** | Numerical computing |
-
----
-
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -63,9 +65,7 @@ Main Python libraries used in this project:
     pip install -r requirements.txt
     ```
 
----
-
-## 💻 Usage
+### Usage
 
 Start the application using:
 
@@ -74,10 +74,3 @@ streamlit run app.py
 ```
 
 ---
-
-## Author
-
-👤 **Adrián**
-
-* Github: [@EvolvedAdrian](https://github.com/EvolvedAdrian)
-
