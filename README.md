@@ -1,6 +1,6 @@
-# AI Image Enhancer
+<sub>[Leer en español](README.es.md)</sub>
 
-[Leer en español](README.es.md)
+# AI Image Enhancer
 
 A web application created to improve blurred faces with AI. Now with background and scratch repairing.
 
